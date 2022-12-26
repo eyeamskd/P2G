@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<section class="drop-downs">
+    <div class="dropdown-container d-flex flex-row justify-content-center flex-wrap p-3">
+        <div class="dropdown mx-4 my-2">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedLocation"
+                (change)="onLocationChange($event)">
+                <option selected disabled>Select the location</option>
+                <option *ngFor="let element of citiesName" value={{element.cityName}}>{{element.cityName}}</option>
+            </select>
+        </div>
+        <div class="dropdown mx-4 my-2">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedGender"
+                (change)="filterChange()">
+                <option selected disabled>Sex</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="unisex">Unisex</option>
+            </select>
+        </div>
+        <div class="dropdown mx-4 my-2">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedRoomType"
+                (change)="filterChange()">
+                <option selected disabled>Occupancy</option>
+                <option value="1bhk">1bhk</option>
+                <option value="2bhk">2bhk</option>
+                <option value="3bhk">3bhk</option>
+                <option value="4bhk">4bhk+</option>
+            </select>
+        </div>
+        <div class="dropdown mx-4 my-2">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedPrice"
+                (change)="filterChange()">
+                <option selected disabled>Price Range</option>
+                <option value="500-2000">500-2000</option>
+                <option value="2000-5000">2000-5000</option>
+                <option value="5000-10000">5000-10000</option>
+                <option value="10000-20000">10000-20000</option>
+                <option value="20000-30000">20000-30000</option>
+                <option value="30000-40000">30000-40000</option>
+                <option value="40000-50000">40000-50000</option>
+                <option value="50000+">50000+</option>
+            </select>
+
+        </div>
+    </div>
+    <div class="text-center fs-5 fw-7 m-3 text-uppercase">Looking for PGs in <span
+            class="fs-4 colored text-uppercase">{{displayLocation}}</span> </div>
+    <div class="rooms-container mx-5 p-5">
+        <div *ngIf="!noPg">
+            <div *ngFor="let element of pgDataCleared"
+                class="card-container d-flex flex-row justify-content-center shadow-lg p-3 my-4 rounded">
+                <div class="top-banner px-3 py-2">
+                    
+                                <img src="../../assets/uploads/{{element.images[0]}}" class="d-block w-100" alt="...">
+                            
+                </div>
+                <div class="middle-banner d-flex justify-content-center flex-column px-5">
+                    <h4>{{element.name.toUpperCase()}}</h4>
+                    <p class="text-muted mt-2">{{element.fulladdress}}</p>
+                    <p class="fs-5 mt-1 colored">{{element.location.toUpperCase()}}</p>
+                    <p class="fw-6 fs-6 text">{{element.gender.toUpperCase()}} <span class="px-3">|</span>
+                        {{element.roomType}}</p>
+                    <p class="fs-4 fw-5 text colored">Rs. {{element.price}} <span class="text-dark fw-6">/mo*</span>
+                    </p>
+                </div>
+
+                <div class="bottom-banner d-flex flex-column justify-content-center mt-3">
+                    <button class="btn py-2 px-3 m-2 rounded-2 text-white"
+                        (click)="onDetails(element._id)">Details</button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="noPg" class="text-center"><span class="m-3 fs-6 text-danger">No PGs available at this moment!</span>
+            <br> <span class="m-3 fs-6 text-danger">We are
+                sorry!</span> <br> <span class="m-3 fs-6 text-danger"> Come back soon! </span>
+        </div>
+    </div>
+</section>

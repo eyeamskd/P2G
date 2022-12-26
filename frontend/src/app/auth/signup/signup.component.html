@@ -1,0 +1,204 @@
+<div id="signUpPage">
+    <div class="row">
+        <div class="bg-img-1 col"></div>
+        <div class="signUp col">
+            <h1>Sign Up</h1>
+            <div class="line-break"></div>
+            <p>Already have an account? <a routerLink="/login">Login</a></p>
+            <form [formGroup]="signupForm" class="signUpForm">
+                <div>
+                    <input type="text" id="name" name="name" placeholder="Name" formControlName="name"
+                        class="signUpInput form-control form-control-lg p-1" />
+                    <div *ngIf="name?.invalid && (name?.dirty|| name?.touched)">
+                        <div class="text-danger" *ngIf="name?.errors?.['required']">Name is Compulsory!</div>
+                        <div class="text-danger" *ngIf="name?.errors?.['pattern']">Invalid Name!</div>
+                    </div>
+                </div>
+                <div>
+                    <input type="tel" id="phno" name="phoneNo" placeholder="Phone Number" formControlName="phoneNo"
+                        class="signUpInput form-control form-control-lg p-1" />
+                    <div *ngIf="phoneNo?.invalid && (phoneNo?.dirty|| phoneNo?.touched)">
+                        <div class="text-danger" *ngIf="phoneNo?.errors?.['pattern']">Invalid phoneNo!</div>
+                        <div class="text-danger" *ngIf="phoneNo?.errors?.['required']">PhoneNo is Compulsory!
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <input type="email" id="email" name="email" placeholder="Email Address" formControlName="email"
+                        class="signUpInput form-control form-control-lg p-1" />
+                    <div *ngIf="email?.invalid && (email?.dirty|| email?.touched)">
+                        <div class="text-danger" *ngIf="email?.errors?.['required']">Email is Compulsory!</div>
+                        <div class="text-danger" *ngIf="email?.errors?.['email']">Invalid Email!</div>
+                    </div>
+                </div>
+                <div>
+                    <input type="text" id="address1" name="addressNo" placeholder="Street/House No."
+                        formControlName="addressNo" class="signUpInput form-control form-control-lg p-1" />
+                    <div *ngIf="addressNo?.invalid && (addressNo?.dirty|| addressNo?.touched)">
+                        <div class="text-danger" *ngIf="addressNo?.errors?.['required']">Address No is
+                            Compulsory!</div>
+                    </div>
+                </div>
+                <div>
+                    <input type="text" id="address2" name="streetName" placeholder="Street Name"
+                        formControlName="streetName" class="signUpInput form-control form-control-lg p-1" />
+                    <div *ngIf="streetName?.invalid && (streetName?.dirty|| streetName?.touched)">
+                        <div class="text-danger" *ngIf="streetName?.errors?.['required']">Street Name is
+                            Compulsory!
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" id="address3" name="city" placeholder="City" formControlName="city"
+                                class="signUpInput form-control form-control-lg p-1" />
+                            <div *ngIf="city?.invalid && (city?.dirty|| city?.touched)"
+                                style="max-width:210px; margin: 0px;">
+                                <div class="text-danger" *ngIf="city?.errors?.['required']">City is Compulsory!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <input type="number" id="address4" name="pincode" placeholder="Pincode"
+                                formControlName="pincode" class="signUpInput form-control form-control-lg p-1" />
+                            <div *ngIf="pincode?.invalid && (pincode?.dirty|| pincode?.touched)"
+                                style="max-width:210px; margin:0px">
+                                <div class="text-danger" *ngIf="pincode?.errors?.['required'] ">Pincode is
+                                    Compulsory!
+                                </div>
+                                <div class="text-danger" *ngIf="pincode?.errors?.['min'] ">Invalid Pincode!
+                                </div>
+                                <div class="text-danger" *ngIf="pincode?.errors?.['max'] ">Invalid Pincode!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <input type="password" id="password" name="password" placeholder="Password"
+                        formControlName="password" class="signUpInput form-control form-control-lg p-1" />
+                    <div *ngIf="password?.invalid && (password?.dirty|| password?.touched)">
+                        <div class="text-danger" *ngIf="password?.errors?.['required']">Password is Compulsory!
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="signUpButton btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" [disabled]="!signupForm.valid">
+                    Add PG
+                </button>
+           
+                
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">New PG Information</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" [formGroup]="pgForm" (ngSubmit)="signUp()">
+                    <div class="my-4">
+                        <form action="" enctype="multipart/form-data">
+                            <label for=" img">Select PG image: </label>
+                            <input type="file" id="img" name="img" accept="image/*" multiple
+                                (change)="imageFile($event)" class="newpgImageInput form-control form-control-lg p-1">
+                            <div class="text-danger text-center">
+                                First 5 Images will be saved !
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="mb-2">
+                        <label for="pgName">PG Name: </label>
+                        <input type="text" name="pgName" id="pgName" formControlName="pgName"
+                            class="newpgInput form-control form-control-lg p-1">
+                    </div>
+                    <div *ngIf="pgName?.invalid && (pgName?.dirty || pgName?.touched)" class="mb-4">
+                        <div *ngIf="pgName?.errors?.['required']" class="text-danger">PG Name is required
+                        </div>
+                        <div *ngIf="pgName?.errors?.['pattern']" class="text-danger">PG Name must contains
+                            only alphabets!
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <label for="gender">Gender: </label>
+                        <select class="form-select" id="gender" formControlName="gender"
+                            class="newpgInput form-control form-control-lg p-1">
+                            <option selected value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="unisex">Unisex</option>
+                        </select>
+                    </div>
+                    <div *ngIf="gender?.invalid && (gender?.dirty || gender?.touched)" class="mb-4">
+                        <div *ngIf="gender?.errors?.['required']" class="text-danger">Select a gender</div>
+                    </div>
+
+                    <div class="my-4">
+                        <label for="pgPrice">Prices(per month): </label>
+                        <input type="number" name="pgPrice" id="pgPrice" formControlName="price"
+                            class="newpgInput form-control form-control-lg p-1">
+                    </div>
+                    <div *ngIf="price?.invalid && (price?.dirty || price?.touched)" class="mb-4">
+                        <div *ngIf="price?.errors?.['required']" class="text-danger">Enter a valid price
+                        </div>
+                        <div *ngIf="price?.errors?.['min']" class="text-danger">Enter a valid price</div>
+                    </div>
+
+                    <div class="my-4">
+                        <label for="pgRoomType">Room Size: </label>
+                        <select class="form-select" id="pgRoomType" formControlName="roomType"
+                            class="newpgInput form-control form-control-lg p-1">
+                            <option selected value="1bhk">1 bhk</option>
+                            <option value="2bhk">2 bhk</option>
+                            <option value="3bhk">3 bhk</option>
+                            <option value="4bhk">4 bhk+</option>
+                        </select>
+                    </div>
+                    <div *ngIf="roomType?.invalid && (roomType?.dirty || roomType?.touched)" class="mb-4">
+                        <div *ngIf="roomType?.errors?.['required']" class="text-danger">Select a roomType
+                        </div>
+                    </div>
+
+                    <div class="my-4">
+                        <label for="pgfullAddress">PG Address (with Landmark at end): </label>
+                        <input type="text" name="pgfullAddress" id="pgfullAddress" formControlName="fullAddress"
+                            class="newpgInput form-control form-control-lg p-1">
+                    </div>
+                    <div *ngIf="fullAddress?.invalid && (fullAddress?.dirty || fullAddress?.touched)" class="mb-4">
+                        <div *ngIf="fullAddress?.errors?.['required']" class="text-danger" class="text-danger">
+                            PG Full Address
+                            is required</div>
+                    </div>
+
+
+                    <div class="my-4">
+                        <label for="pgLocation">PG Location: </label>
+                        <input type="text" name="pgLocation" id="pgLocation" formControlName="location"
+                            class="newpgInput form-control form-control-lg p-1">
+                    </div>
+                    <div *ngIf="location?.invalid && (location?.dirty || location?.touched)" class="mb-4">
+                        <div *ngIf="location?.errors?.['required']" class="text-danger" class="text-danger">
+                            PG location
+                            is required</div>
+                        <div *ngIf="location?.errors?.['pattern']" class="text-danger">PG location must
+                            contains only
+                            alphabets!</div>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-secondary py-1 px-2 me-2"
+                            data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary py-1 px-2 mx-2" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" [disabled]="!pgForm.valid || !buttonActivate">Sign
+                            Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

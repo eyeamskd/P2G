@@ -1,0 +1,92 @@
+<app-navbar></app-navbar>
+
+<div class="main-container">
+
+    <section class="cities-section">
+        <div class="search-city">
+            <div class="search-city-container p-4">
+                <div class="select-city d-flex justify-content-center flex-column">
+                    <h4 class="text-center">Select your nearby city</h4>
+                    <div class="cities row ">
+                        <div *ngFor="let element of citiesData"
+                            class="city col-2 mb-3 d-flex justify-content-center flex-column"
+                            (click)="onClick(element.cityName)">
+                            <img src={{element.cityIcon}} alt="" class="m-auto icon-image">
+                            <span class="text-center city-name pt-3 fs-5 text">{{element.cityName}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="row about-section-container">
+            <div class="col about-section-left-banner d-flex justify-content-center flex-column">
+                <h2 class="p-5">About Us</h2>
+                <p class="about-us-para fs-5 text">
+                    Pg made Easy is a technology-based platform for Booking PG, Serviced Apartments, 
+                    Shared Flat and Rooms by Location with Specific requirement by filtering by Location,
+                     Price, Room type, Gender.
+                    We will soon expand to all the Major Cities of the Country
+                </p>
+            </div>
+            <div class="col about-section-right-banner">
+
+                <div class="image-container d-flex flex-column justify-content-center">
+                    <img src="./assets//home_page_section_1.webp" alt=""
+                        class="image-container-image rounded-4 mx-auto my-3">
+                    <img src="./assets//home_page_section_2.webp" alt=""
+                        class="image-container-image rounded-4 mx-auto">
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="why-us-section mt-5">
+        <div class="why-us-container">
+            <div class="top-part">
+                <h2 class="text-center p-4">Why Us</h2>
+                <p class="text-center fs-6 text">The Listed Services Are Offered To All Our Customers. We Assure
+                    You
+                    The Best
+                    Deals In All Our <br> Properties And The Chance To Live A More Luxurious Life With Lesser Cost.
+                </p>
+            </div>
+            <div class=" row lower-part">
+                <div class="col d-flex justify-content-center flex-column align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path
+                            d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z" />
+                    </svg>
+                    <h5>Find PGs Near You</h5>
+                    <p class="why-us-para">Find Paying guests near you by selecting your location. We cover more
+                        than 50+ localities in every city.</p>
+                </div>
+                <div class="col d-flex justify-content-center flex-column align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path
+                            d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z" />
+                    </svg>
+                    <h5>Book Online</h5>
+                    <p class="why-us-para">Book your PG online through our web portal or mobile application.
+                        Avail discounts that are available for booking online.</p>
+                </div>
+                <div class="col d-flex justify-content-center flex-column align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path
+                            d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 96c-17.7 0-32-14.3-32-32s14.3-32 32-32s32 14.3 32 32s-14.3 32-32 32z" />
+                    </svg>
+                    <h5>Best Deals on PGs</h5>
+                    <p class="why-us-para">We have tie ups with PGs in every city. We make sure that our
+                        customers get the best deals for PGs.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+<app-footer></app-footer>

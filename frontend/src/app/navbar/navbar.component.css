@@ -1,0 +1,18 @@
+.brand-link {
+  color: #41b096 !important;
+  font-weight: 600;
+  font-size: 32px;
+}
+
+.option-link {
+  font-size: 20px;
+  font-weight: 600;
+}
+.collapsing > ul > li > a,
+.show > ul > li > a {
+  padding-left: 2.6rem;
+}
+.collapsing > ul > li > a:hover,
+.show > ul > li > a:hover {
+  color: #41b096;
+}

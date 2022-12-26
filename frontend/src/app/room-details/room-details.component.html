@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div class="div-container">
+    <div class="row">
+        <div class="col-sm">
+           
+                        <img src="../../assets/uploads/{{roomData.images[0]}}" class="d-block w-100" alt="...">
+                
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-sm">
+            <div class="middle-banner d-flex justify-content-center flex-column px-5">
+                <h5 class="text-center">Room Details:</h5>
+                <p class="text-muted text-center mt-2 fs-1 colored fw-bolder">{{roomData.name}}</p>
+                <p class="fs-5 mt-1 text-center text-dark">{{roomData.fulladdress}}</p>
+                <p class="fs-5 mt-1 text-center colored">{{roomData.location.toUpperCase()}}</p>
+                <p class="fs-5 mt-1 text-center">{{roomData.gender.toUpperCase()}} | {{roomData.roomType}}</p>
+                <p class="fs-4 mt-1 text-center colored fw-bolder">Rs. {{roomData.price}}/mo*</p>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="middle-banner d-flex justify-content-center flex-column px-5">
+                <h5 class="text-center">Owner Details:</h5>
+                <p class="text-muted text-center mt-2 fs-1 colored fw-bolder">{{userData.name}}</p>
+                <p class="fs-5 mt-1 colored text-center">+91-{{userData.phoneNo}}</p>
+                <p class="fs-5 mt-1 colored text-center"> {{userData.email}}</p>
+                <p class="fs-5 mt-1 text-center text-dark"> {{userData.address}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="button-container d-flex justify-content-center my-3">
+        <button type="submit" class="btn btn-primary px-3 py-2 fs-5" (click)="onSchedule()">Schedule a Visit</button>
+    </div>
+
+</div>
+<app-footer></app-footer>

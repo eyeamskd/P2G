@@ -1,0 +1,178 @@
+/* Body css */
+.search-city {
+  position: relative;
+  min-height: 900px;
+  width: 100%;
+  background-image: url("https://assets.gqindia.com/photos/5ff84faa7b8be85e459b9de1/3:2/w_1620,h_1080,c_limit/Bangalore.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h4 {
+  text-transform: uppercase;
+  color: #41b096;
+}
+
+.search-city-container {
+  background-color: aliceblue;
+  width: 100%;
+  max-width: 900px;
+  opacity: 1;
+}
+
+.cities {
+  padding: 1.3rem;
+  cursor: pointer;
+}
+.city {
+  transition: transform 0.3s ease;
+  transform: scale(1);
+}
+
+.city:hover {
+  background-color: #7cd4c0;
+  transform: scale(1.2);
+  border-radius: 1rem;
+  color: white;
+}
+.icon-image {
+  max-height: 90px;
+  max-width: 90px;
+}
+
+@media (max-width: 700px) {
+  .cities {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .city {
+    width: 90%;
+  }
+}
+
+/* About Section */
+.about-section {
+  margin-top: 2rem;
+  border-bottom: 1px solid #41b096;
+}
+
+.about-section,
+.about-section-container,
+.about-section-left-banner,
+.about-section-right-banner,
+.image-container {
+  min-height: 700px;
+  height: 100%;
+}
+.about-section-container {
+  max-width: 1441px;
+  margin: 0px auto;
+}
+h2 {
+  text-transform: uppercase;
+  color: #41b096;
+}
+.about-us-para {
+  padding: 1.2rem 3.5rem;
+}
+.about-section-right-banner {
+  padding: 0px !important;
+}
+.image-container-image {
+  height: 250px;
+  width: 250px;
+}
+
+@media (max-width: 915px) {
+  .image-container-image {
+    margin: 0px auto !important;
+  }
+}
+@media (max-width: 700px) {
+  h2 {
+    text-align: center;
+    padding: 1.2rem !important;
+  }
+  .about-section-container {
+    flex-direction: column-reverse !important;
+  }
+  .about-section,
+  .about-section-container,
+  .about-section-left-banner {
+    min-height: 500px;
+  }
+  .about-section-right-banner {
+    min-height: 400px !important;
+  }
+  .image-container {
+    min-height: 400px !important;
+    max-width: unset !important;
+    flex-direction: row !important;
+  }
+  .image-container-image {
+    margin: auto auto !important;
+  }
+}
+
+@media (max-width: 515px) {
+  h2 {
+    padding: 1.2rem !important;
+  }
+  .image-container {
+    flex-direction: column !important;
+  }
+  .image-container-image {
+    margin: 1rem auto !important;
+  }
+}
+
+/* Why us section */
+
+.why-us-section {
+  min-height: 600px;
+  overflow-x: hidden;
+}
+.top-part > p {
+  letter-spacing: 0.1rem;
+}
+.lower-part {
+  margin-top: 6rem;
+}
+svg {
+  max-width: 120px;
+  max-height: 120px;
+  border: 5px solid #41b096;
+  fill: #41b096;
+  padding: 2rem;
+}
+h5 {
+  color: #41b096;
+  padding-top: 2rem;
+}
+.why-us-para {
+  text-align: center;
+  padding: 1rem 4rem;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .why-us-para {
+    padding: 1rem 2rem;
+  }
+}
+@media (max-width: 700px) {
+  .lower-part {
+    flex-direction: column !important;
+  }
+  .lower-part > div {
+    margin: 10px 0px !important;
+  }
+  .why-us-para {
+    padding: 1rem 1rem;
+  }
+  .top-part > p {
+    padding: 0.5rem;
+  }
+}
